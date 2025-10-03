@@ -26,12 +26,16 @@ class LogProcessing:
             }
 
         return paged_table
+    
+    TYPES = [
+        'xmotion_hw2_pir'
+    ]
 
     __KEYED_HEADERS = {
-        'xmotion_hw2_pir' : {"PIR" : [["Time", "SN", "SP", "CP", "SM", "CM", "CCP", "CCM", "NP", "NM"]]}
+        TYPES[0] : {"PIR" : [["Time", "SN", "SP", "CP", "SM", "CM", "CCP", "CCM", "NP", "NM"]]}
     }
     __KEYED_LOGPROCESSORS = {
-        'xmotion_hw2_pir' : __xmotion_hw2_pir
+        TYPES[0] : __xmotion_hw2_pir
     }
 
     @staticmethod

@@ -42,10 +42,6 @@ def main():
         epilog='text under help'
     )
 
-    parser.add_argument('-s', '--silent', 
-                        help='Run program silently',
-                        action='store_true')
-
     group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument('-f', '--file', help='Path to log file', 
                         action='store',
@@ -57,11 +53,8 @@ def main():
                         help='Output table file', 
                         action='store', 
                         required=True)
-    parser.add_argument('-t', '--type', help='Log type', 
+    parser.add_argument('-t', '--type', choices=lp.TYPES, help='Log type', 
                         action='store', required=True)
-    parser.add_argument('-p', '--print',  
-                        help='Print table to stdout', 
-                        action='store_true')
 
     args = parser.parse_args()
 
