@@ -37,23 +37,22 @@ def dir_path(path_str):
 
 def main():
     parser = argparse.ArgumentParser(
-        prog='tlogtotables',
-        description='description',
-        epilog='text under help'
+        prog='tlog2xlsx',
+        description='Python програма для командного інтерфейсу, яка перетворює логи в таблиці .xlsx',
     )
 
     group = parser.add_mutually_exclusive_group(required=True)
-    group.add_argument('-f', '--file', help='Path to log file', 
+    group.add_argument('-f', '--file', help='Шлях до файлу з логами', 
                         action='store',
                         type=argparse.FileType('r'))
-    group.add_argument('-d', '--dir', help='Path to log file', 
+    group.add_argument('-d', '--dir', help='Шлях до директорії з логами', 
                         action='store',
                         type=dir_path)
     parser.add_argument('-o', '--output', 
-                        help='Output table file', 
+                        help='Файл таблиці, куди зберігається інформація', 
                         action='store', 
                         required=True)
-    parser.add_argument('-t', '--type', choices=lp.TYPES, help='Log type', 
+    parser.add_argument('-t', '--type', choices=lp.TYPES, help='Тип логу та вивідної інформації', 
                         action='store', required=True)
 
     args = parser.parse_args()
